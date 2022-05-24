@@ -1,0 +1,34 @@
+
+CREATE TABLE celebs
+(id INTEGER PRIMARY KEY AUTOINCREMENT, 
+name TEXT, 
+age INTEGER,
+job TEXT);
+
+INSERT INTO celebs (name, age, job) VALUES ('Johnny Depp', 48, 'actor');
+INSERT INTO celebs (name, age, job) VALUES ('Taylor Swift', 28, 'Singer');
+INSERT INTO celebs (name, age, job) VALUES ('Jennifer Aniston', 53, 'actor');
+INSERT INTO celebs (name, age, job) VALUES ('Megan Thee Stallion', 25, 'rapper');
+INSERT INTO celebs (name, age, job) VALUES ('Reba', 55, 'singer');
+INSERT INTO celebs (name, age, job) VALUES ('Nicholas Cage', 49, 'actor');
+INSERT INTO celebs (name, age, job) VALUES ('Justin Beber', 29, 'singer');
+INSERT INTO celebs (name, age, job) VALUES ('Janelle Monae', 22, 'singer');
+
+CREATE TABLE networth
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+celeb_id INTEGER,
+net_worth NUMERIC);
+
+INSERT INTO networth (celeb_id, net_worth) VALUES (1, 5000000);
+INSERT INTO networth (celeb_id, net_worth) VALUES (2, 2000000);
+INSERT INTO networth (celeb_id, net_worth) VALUES (3, 2000000);
+INSERT INTO networth (celeb_id, net_worth) VALUES (4, 550000);
+INSERT INTO networth (celeb_id, net_worth) VALUES (5, 1000000);
+INSERT INTO networth (celeb_id, net_worth) VALUES (6, 800000);
+INSERT INTO networth (celeb_id, net_worth) VALUES (7, 600000);
+INSERT INTO networth (celeb_id, net_worth) VALUES (8, 2000000);
+
+SELECT celebs.name, networth.net_worth
+FROM celebs
+JOIN networth
+ON celebs.id = networth.celeb_id;
